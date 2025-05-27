@@ -10,7 +10,7 @@ session = Session()
 # 1. Obtener las entregas de todos los estudiantes que pertenecen al departamento de Arte. En función de la entrega,
 # presentar, nombre del tarea, nombre del estudiante, calificación, nombre de instructor y nombre del departamento
 
-# Para poder filtrar de acuerdo al nombre del departamento y obtener las entregas, viajamos con JOIN's, hsata la tabla de departamento
+# Para poder filtrar de acuerdo al nombre del departamento y obtener las entregas, viajamos con JOIN's, hasta la tabla de departamento
 # , para armar el camino, debemos conocer las relaciones entre las tablas, para finalmente poder filtrar por el nombre del departamento.
 # Una entrega pertenece a una tarea, una tarea fue solicitada en un curso, un curso pertenece a un departamento.
 entregas = session.query(Entrega).join(Tarea).join(Curso).join(Departamento).filter(Departamento.nombre.like("Arte")).all()
